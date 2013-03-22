@@ -12,7 +12,7 @@ class Auth extends CI_Controller {
 		$data['message'] = "";
 		$user = $this->session->userdata('user');
 		if (!empty($user)) {
-			$this->output->set_header("Location: http://google.com", TRUE, 302); 
+			redirect('pages/view/home');
 		}
 		$this->load->view('templates/header', $data);
 		$this->load->view('auth/index', $data);
