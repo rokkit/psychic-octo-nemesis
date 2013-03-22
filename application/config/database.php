@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = 'http://mysql-env-5909988.jelastic.servint.net';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '14051992';
+$db['default']['password'] = 'nJdw0vVQKX';
 $db['default']['database'] = 'db';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
