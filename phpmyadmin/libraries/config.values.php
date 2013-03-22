@@ -4,7 +4,7 @@
  * Database with allowed values for configuration stored in the $cfg array,
  * used by setup script and user preferences to generate forms.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 if (!defined('PHPMYADMIN')) {
@@ -44,6 +44,7 @@ $cfg_db['LeftFrameDBSeparator'] = 'short_string';
 $cfg_db['LeftFrameTableSeparator'] = 'short_string';
 $cfg_db['NavigationBarIconic'] = array(true => __('Yes'), false => __('No'), 'both' => __('Both'));
 $cfg_db['Order'] = array('ASC', 'DESC', 'SMART');
+$cfg_db['RowActionLinks'] = array('none' => __('Nowhere'), 'left' => __('Left'), 'right' => __('Right'), 'both' => __('Both'));
 $cfg_db['ProtectBinary'] = array(false, 'blob', 'all');
 $cfg_db['DefaultDisplay'] = array('horizontal', 'vertical', 'horizontalflipped');
 $cfg_db['CharEditing'] = array('input', 'textarea');
@@ -53,8 +54,7 @@ $cfg_db['DefaultTabServer'] = array(
     'server_databases.php',    // list of databases
     'server_status.php',       // runtime information
     'server_variables.php',    // MySQL server variables
-    'server_privileges.php',   // user management
-    'server_processlist.php'); // process list
+    'server_privileges.php');   // user management
 $cfg_db['DefaultTabDatabase'] = array(
     'db_structure.php',   // tables list
     'db_sql.php',         // SQL form
@@ -67,11 +67,14 @@ $cfg_db['DefaultTabTable'] = array(
     'tbl_change.php',    // insert row page
     'sql.php');          // browse page
 $cfg_db['QueryWindowDefTab'] = array(
-	'sql',     // SQL
-	'files',   // Import files
-	'history', // SQL history
-	'full');   // All (SQL and SQL history)
-$cfg_db['InitialSlidersState'] = array('open' => __('Open'), 'closed' => __('Closed'));
+    'sql',     // SQL
+    'files',   // Import files
+    'history', // SQL history
+    'full');   // All (SQL and SQL history)
+$cfg_db['InitialSlidersState'] = array(
+    'open' => __('Open'), 
+    'closed' => __('Closed'),
+    'disabled' => __('Disabled'));
 $cfg_db['Import']['format'] = array(
     'csv',    // CSV
     'docsql', // DocSQL
@@ -146,7 +149,6 @@ $cfg_db['_overrides']['Servers/1/extension'] = extension_loaded('mysqli')
 $cfg_db['_validators'] = array(
     'CharTextareaCols' => 'validate_positive_number',
     'CharTextareaRows' => 'validate_positive_number',
-    'DefaultPropDisplay' => array(array('validate_by_regex', '/^(?:horizontal|vertical|\d+)$/')),
     'ExecTimeLimit' => 'validate_non_negative_number',
     'Export/sql_max_query_size' => 'validate_positive_number',
     'ForeignKeyMaxLimit' => 'validate_positive_number',
@@ -159,6 +161,7 @@ $cfg_db['_validators'] = array(
     'Import/skip_queries' => 'validate_non_negative_number',
     'InsertRows' => 'validate_positive_number',
     'LeftFrameTableLevel' => 'validate_positive_number',
+    'LeftRecentTable' => 'validate_non_negative_number',
     'LimitChars' => 'validate_positive_number',
     'LoginCookieValidity' => 'validate_positive_number',
     'LoginCookieStore' => 'validate_non_negative_number',
